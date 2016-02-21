@@ -16,13 +16,27 @@ package eu.tomylobo.maven;
  * limitations under the License.
  */
 
+import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.BuildPluginManager;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.project.MavenProject;
 
 @Mojo(name = "package")
 public class PackageMojo extends AbstractMojo {
+    @Component
+    public MavenProject mavenProject;
+
+    @Component
+    public MavenSession mavenSession;
+
+    @Component
+    public BuildPluginManager pluginManager;
+
     public void execute() throws MojoExecutionException {
-        getLog().info( "Hello, world." );
+        JDebMojoWrapper mojoWrapper = new JDebMojoWrapper(this);
+        mojoWrapper.execute();
     }
 }
