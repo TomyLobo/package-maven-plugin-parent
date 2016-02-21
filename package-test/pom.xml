@@ -26,6 +26,10 @@
 						<goals>
 							<goal>package</goal>
 						</goals>
+
+						<configuration>
+							<classifier>deb</classifier>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

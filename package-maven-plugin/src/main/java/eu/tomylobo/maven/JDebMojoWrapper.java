@@ -19,6 +19,8 @@ public class JDebMojoWrapper extends AbstractMojoWrapper {
                 ),
                 goal("jdeb"),
                 configuration(
+                        element(name("attach"), packageMojo.attach),
+                        element(name("classifier"), packageMojo.classifier)
                 )
         );
     }

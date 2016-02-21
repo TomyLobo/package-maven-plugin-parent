@@ -22,6 +22,7 @@ import org.apache.maven.plugin.BuildPluginManager;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
 @Mojo(name = "package")
@@ -34,6 +35,12 @@ public class PackageMojo extends AbstractMojo {
 
     @Component
     public BuildPluginManager pluginManager;
+
+    @Parameter
+    public String classifier;
+
+    @Parameter(defaultValue = "true")
+    public String attach;
 
     public void execute() throws MojoExecutionException {
         JDebMojoWrapper mojoWrapper = new JDebMojoWrapper(this);
