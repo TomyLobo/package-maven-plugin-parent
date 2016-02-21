@@ -11,7 +11,7 @@ public class JDebMojoWrapper extends AbstractMojoWrapper {
     }
 
     public void execute() throws MojoExecutionException {
-        executeMojo(
+        executeMojo2(
                 plugin(
                         groupId("org.vafer"),
                         artifactId("jdeb"),
@@ -19,11 +19,6 @@ public class JDebMojoWrapper extends AbstractMojoWrapper {
                 ),
                 goal("jdeb"),
                 configuration(
-                ),
-                executionEnvironment(
-                        mavenProject,
-                        mavenSession,
-                        pluginManager
                 )
         );
     }
